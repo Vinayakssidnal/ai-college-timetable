@@ -1,0 +1,879 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #202938;
+  background: #f4f6fa;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: .62;
+}
+
+.app-shell {
+  width: min(1400px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: 32px 0 22px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.page-header h1,
+.login-card h1 {
+  margin: 0;
+  font-size: clamp(28px, 3.7vw, 38px);
+  letter-spacing: -1.1px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #5268c9;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  max-width: 760px;
+  color: #697589;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.class-badge,
+.local-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.class-badge {
+  color: #3e50a8;
+  background: #e9edff;
+}
+
+.local-badge {
+  color: #445168;
+  background: #edf1f5;
+}
+
+.panel {
+  padding: 23px;
+  margin-bottom: 22px;
+  background: #fff;
+  border: 1px solid #e1e6ef;
+  border-radius: 15px;
+  box-shadow: 0 5px 22px rgb(25 36 58 / 4%);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -.2px;
+}
+
+.section-heading p {
+  margin: 7px 0 0;
+  color: #738095;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #414e63;
+  min-width: 0;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  color: #202938;
+  border: 1px solid #d5dce8;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 11px;
+  outline: none;
+}
+
+input,
+select {
+  min-height: 40px;
+}
+
+textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #5268c9;
+  box-shadow: 0 0 0 3px rgb(82 104 201 / 12%);
+}
+
+.primary-button,
+.secondary-button,
+.small-danger {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 0 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.primary-button {
+  color: white;
+  background: #4358ba;
+  border: 1px solid #4358ba;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #35489e;
+}
+
+.secondary-button {
+  color: #3c4960;
+  background: #fff;
+  border: 1px solid #d6deea;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: #f5f7fb;
+}
+
+.small-danger {
+  min-height: 30px;
+  padding: 0 9px;
+  color: #9c3333;
+  background: #fff;
+  border: 1px solid #efcece;
+  font-size: 11px;
+}
+
+.small-danger:hover {
+  background: #fff6f6;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.login-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at top right, #e7ebff, transparent 35%), #f4f6fa;
+}
+
+.login-card {
+  width: min(470px, 100%);
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #e1e6ef;
+  border-radius: 18px;
+  box-shadow: 0 18px 60px rgb(30 44 72 / 10%);
+}
+
+.login-form {
+  display: grid;
+  gap: 15px;
+  margin: 24px 0 14px;
+}
+
+.demo-credentials {
+  display: grid;
+  gap: 5px;
+  margin-top: 18px;
+  padding: 13px;
+  border-radius: 9px;
+  background: #f6f8fc;
+  color: #5f6d82;
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.demo-credentials strong {
+  color: #39465c;
+  font-size: 12px;
+}
+
+.demo-credentials small {
+  color: #8b6470;
+}
+
+.metadata-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.generation-form {
+  display: grid;
+  gap: 17px;
+}
+
+.prompt-field textarea {
+  min-height: 90px;
+}
+
+.workload-heading h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.workload-heading p {
+  margin: 5px 0 0;
+  color: #748095;
+  font-size: 12px;
+}
+
+.workload-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.workload-field small {
+  color: #8993a4;
+  font-weight: 500;
+  font-size: 10px;
+}
+
+.preference-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.checkbox-line {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.checkbox-line input {
+  width: 15px;
+  min-height: 15px;
+  height: 15px;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.helper-text {
+  margin: -5px 0 0;
+  color: #7b8798;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.table-wrapper,
+.schedule-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table,
+.details-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.data-table thead,
+.details-table thead {
+  background: #f3f5f9;
+}
+
+.data-table th,
+.details-table th {
+  padding: 11px 12px;
+  color: #657186;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .35px;
+  white-space: nowrap;
+}
+
+.data-table td,
+.details-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #e8ecf3;
+  vertical-align: middle;
+}
+
+.data-table td input,
+.data-table td select {
+  min-width: 100px;
+  min-height: 34px;
+  padding: 6px 8px;
+}
+
+.muted-line {
+  display: block;
+  margin-top: 3px;
+  color: #8792a3;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.inline-add-form {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: end;
+  gap: 12px;
+  padding-top: 15px;
+}
+
+.class-subject-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0 15px;
+}
+
+.class-subject-toolbar label {
+  min-width: 280px;
+}
+
+.class-admin-block {
+  margin: 18px 0 20px;
+  padding: 13px;
+  border: 1px solid #e7ebf2;
+  border-radius: 10px;
+}
+
+.class-admin-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.empty-row {
+  color: #8590a2;
+  text-align: center;
+}
+
+.room-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.room-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 9px 7px 12px;
+  border: 1px solid #e2e7f0;
+  border-radius: 9px;
+  background: #fbfcfe;
+  font-size: 12px;
+}
+
+.public-picker {
+  width: min(350px, 100%);
+}
+
+.teacher-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.teacher-summary>div {
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+  border: 1px solid #e4e9f2;
+  background: #fafbfe;
+  border-radius: 10px;
+}
+
+.teacher-summary span {
+  color: #778398;
+  font-size: 11px;
+}
+
+.teacher-summary strong {
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.export-heading {
+  align-items: center;
+}
+
+.export-actions {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.class-picker {
+  min-width: 150px;
+}
+
+.official-timetable {
+  border: 1px solid #cbd1da;
+  background: #fff;
+  padding: 14px;
+  color: #202938;
+}
+
+.official-heading {
+  text-align: center;
+}
+
+.college-name {
+  font-size: 16px;
+  font-weight: 850;
+  letter-spacing: .45px;
+}
+
+.department-name {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.timetable-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  font-size: 10px;
+}
+
+.timetable-title-row strong {
+  font-size: 13px;
+}
+
+.official-meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 8px;
+  border: 1px solid #cbd1da;
+}
+
+.official-meta span {
+  padding: 8px;
+  border-right: 1px solid #cbd1da;
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.official-meta span:last-child {
+  border-right: 0;
+}
+
+.schedule-grid {
+  width: 100%;
+  min-width: 900px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+
+.schedule-grid th,
+.schedule-grid td {
+  border: 1px solid #c5cbd4;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.schedule-grid thead th {
+  height: 48px;
+  padding: 5px 4px;
+  background: #f7f8fa;
+}
+
+.schedule-grid .day-heading {
+  width: 85px;
+  font-size: 10px;
+}
+
+.period-number {
+  display: block;
+  color: #4c576b;
+  font-size: 9px;
+  font-weight: 850;
+}
+
+.time-label {
+  display: block;
+  margin-top: 4px;
+  color: #667287;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.break-heading,
+.break-cell {
+  width: 53px;
+  background: #f0f2f5 !important;
+  color: #505c70;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.break-cell span {
+  display: block;
+  margin-top: 4px;
+  font-size: 8px;
+  font-weight: 500;
+}
+
+.row-day {
+  width: 85px;
+  padding: 7px 4px;
+  background: #fafbfc;
+  font-size: 10px;
+}
+
+.schedule-cell {
+  min-width: 100px;
+  height: 72px;
+  padding: 5px;
+}
+
+.schedule-cell.occupied {
+  background: #fbfcff;
+}
+
+.schedule-cell.lab-cell {
+  background: #fff8e9;
+}
+
+.slot-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  white-space: pre-line;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.slot-content strong {
+  font-size: 10px;
+}
+
+.slot-content span {
+  color: #59667b;
+  font-size: 9px;
+}
+
+.slot-content small {
+  color: #8992a2;
+  font-size: 8px;
+}
+
+.empty-slot {
+  color: #c1c6d0;
+}
+
+.course-details {
+  margin-top: 16px;
+}
+
+.course-details h3 {
+  margin: 0 0 7px;
+  font-size: 11px;
+  text-align: center;
+  letter-spacing: .35px;
+}
+
+.empty-state {
+  padding: 26px;
+  border: 1px dashed #d6deea;
+  border-radius: 10px;
+  text-align: center;
+  color: #718096;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.notice {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border: 1px solid;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.success {
+  border-color: #b8dfcc;
+  background: #f3fbf6;
+  color: #225e41;
+}
+
+.failure {
+  border-color: #edc5c5;
+  background: #fff6f6;
+  color: #9b3333;
+}
+
+.error-text {
+  color: #9b3333;
+}
+
+.page-footer {
+  padding: 7px 4px 15px;
+  color: #7b8798;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+  .metadata-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .inline-add-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workload-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .teacher-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .export-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .export-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    width: calc(100% - 20px);
+    padding-top: 19px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .header-actions {
+    justify-content: flex-start;
+  }
+
+  .panel {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .metadata-grid,
+  .inline-add-form,
+  .workload-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    flex-direction: column;
+  }
+
+  .class-subject-toolbar {
+    justify-content: stretch;
+  }
+
+  .class-subject-toolbar label {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .button-row button {
+    width: 100%;
+  }
+
+  .official-timetable {
+    padding: 7px;
+  }
+
+  .college-name {
+    font-size: 12px;
+  }
+
+  .department-name {
+    font-size: 9px;
+  }
+
+  .timetable-title-row {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .official-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .official-meta span:nth-child(2) {
+    border-right: 0;
+  }
+
+  .official-meta span:nth-child(-n+2) {
+    border-bottom: 1px solid #cbd1da;
+  }
+
+  .login-card {
+    padding: 22px;
+  }
+
+  .teacher-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .app-shell {
+    width: 100%;
+    padding: 0;
+  }
+
+  .page-header,
+  .metadata-panel,
+  .generation-form,
+  .modify-form,
+  .export-actions,
+  .login-card,
+  .page-footer,
+  .notice,
+  .header-actions,
+  .panel:not(.timetable-panel) {
+    display: none !important;
+  }
+
+  .panel.timetable-panel {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .section-heading {
+    display: none !important;
+  }
+
+  .official-timetable {
+    border: none;
+    padding: 0;
+  }
+
+  .schedule-table-wrap {
+    overflow: visible;
+  }
+
+  .schedule-grid {
+    min-width: 0;
+  }
+
+  .schedule-cell {
+    height: 55px;
+  }
+
+  @page {
+    size: landscape;
+    margin: 8mm;
+  }
+}
